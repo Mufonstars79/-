@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Михаил Гребенаров | Автоинструктор София</title>
+  <meta name="description" content="Михаил Гребенаров — лицензиран автоинструктор в София. Шофьорски уроци с Hyundai i30. Запиши се за пробен урок!" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__icon">🚗</span>
+        <span class="logo__text">АвтоИнструктор</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#about">За мен</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Галерия</a>
+        <a href="#how">Как работим</a>
+        <a href="#testimonials">Отзиви</a>
+        <a href="#contact" class="btn btn--sm">Запиши се</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="badge">✅ Над 500 успешно обучени</span>
+        <h1>Научи се да<br /><span class="highlight">шофираш уверено</span></h1>
+        <p>Индивидуален подход, търпение и опит. Заедно ще стигнем до твоята книжка по най-бързия и безопасен начин.</p>
+        <div class="hero__btns">
+          <a href="#contact" class="btn btn--primary btn--lg">Запиши се за пробен урок</a>
+          <a href="#services" class="btn btn--outline btn--lg">Виж пакетите</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <strong>98%</strong>
+            <span>успеваемост</span>
+          </div>
+          <div class="stat">
+            <strong>5+</strong>
+            <span>години опит</span>
+          </div>
+          <div class="stat">
+            <strong>500+</strong>
+            <span>обучени</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__img">
+        <div class="hero__car-visual">
+          <div class="car-card">
+            <div class="car-card__icon">🚗</div>
+            <div class="car-card__info">
+              <strong>Hyundai i30, 2018</strong>
+              <span>Ръчни скорости, двойно управление</span>
+            </div>
+          </div>
+          <div class="car-card car-card--2">
+            <div class="car-card__icon">📍</div>
+            <div class="car-card__info">
+              <strong>Удобно за теб</strong>
+              <span>Вземаме те от вкъщи</span>
+            </div>
+          </div>
+          <div class="car-card car-card--3">
+            <div class="car-card__icon">⭐</div>
+            <div class="car-card__info">
+              <strong>Отлични оценки</strong>
+              <span>5.0 / 5.0 от курсистите</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЗА МЕН -->
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <div class="about__img-wrap">
+        <div class="about__avatar">
+          <span>👨‍🏫</span>
+        </div>
+        <div class="about__badge-wrap">
+          <div class="about__badge">🏅 Лицензиран инструктор</div>
+          <div class="about__badge">📋 Категория B</div>
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="section-label">За мен</span>
+        <h2>Здравей, аз съм Михаил Гребенаров</h2>
+        <p>Вече повече от <strong>5 години</strong> помагам на хора от всички възрасти да се научат да шофират в София. Вярвам, че всеки може да стане уверен шофьор — нужни са само търпение, правилен метод и добра обратна връзка.</p>
+        <p>Работя с <strong>Hyundai i30 (2018)</strong>, оборудван с двойно управление. Адаптирам темпото към теб — без бързане, без напрежение.</p>
+        <ul class="about__list">
+          <li>✅ Лицензиран инструктор по шофиране</li>
+          <li>✅ Уроци на ръчни и автоматични скорости</li>
+          <li>✅ Гъвкаво работно време (включително събота)</li>
+          <li>✅ Вземам от адрес по договорка</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Услуги</span>
+        <h2>Изберете пакет</h2>
+        <p>Гъвкави опции, съобразени с нуждите ти</p>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card">
+          <div class="service-card__icon">🎯</div>
+          <h3>Пробен урок</h3>
+          <div class="service-card__price">15 €</div>
+          <p>Идеален старт. Запознаваме се, оценяваме нивото ти и карам теглим план.</p>
+          <ul>
+            <li>60 минути</li>
+            <li>Оценка на умения</li>
+            <li>Индивидуален план</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline">Запиши се</a>
+        </div>
+
+        <div class="service-card service-card--featured">
+          <div class="service-card__badge">Най-популярен</div>
+          <div class="service-card__icon">🚀</div>
+          <h3>Стандартен пакет</h3>
+          <div class="service-card__price">1200 € <span>/ 20 урока</span></div>
+          <p>Пълна подготовка за изпита — теория и практика, стъпка по стъпка.</p>
+          <ul>
+            <li>20 урока × 60 мин.</li>
+            <li>Подготовка за изпит</li>
+            <li>Учебни материали</li>
+            <li>Безплатен изпитен съвет</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">Запиши се</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">⚡</div>
+          <h3>Интензивен курс</h3>
+          <div class="service-card__price">1000 € <span>/ 30 урока</span></div>
+          <p>За тези, които искат книжка бързо. Интензивна подготовка за 3–4 седмици.</p>
+          <ul>
+            <li>30 урока × 60 мин.</li>
+            <li>Ежедневни занятия</li>
+            <li>Пълна подготовка</li>
+            <li>Приоритетно записване</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline">Запиши се</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ГАЛЕРИЯ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Галерия</span>
+        <h2>Снимки от уроците</h2>
+        <p>Моментите зад волана — твоят път към книжката</p>
+      </div>
+      <div class="gallery__grid">
+        <div class="gallery__item" data-index="0">
+          <img src="images/photo1.jpg" alt="Шофьорски урок 1" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery__item" data-index="1">
+          <img src="images/photo2.jpg" alt="Шофьорски урок 2" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery__item" data-index="2">
+          <img src="images/photo3.jpg" alt="Шофьорски урок 3" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery__item" data-index="3">
+          <img src="images/photo4.jpg" alt="Шофьорски урок 4" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery__item" data-index="4">
+          <img src="images/photo5.jpg" alt="Шофьорски урок 5" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery__item" data-index="5">
+          <img src="images/photo6.jpg" alt="Шофьорски урок 6" loading="lazy" />
+          <div class="gallery__overlay"><span>🔍</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lbClose" aria-label="Затвори">✕</button>
+    <button class="lightbox__prev"  id="lbPrev"  aria-label="Предишна">‹</button>
+    <button class="lightbox__next"  id="lbNext"  aria-label="Следваща">›</button>
+    <div class="lightbox__img-wrap">
+      <img src="" alt="" id="lbImg" />
+    </div>
+    <div class="lightbox__counter" id="lbCounter"></div>
+  </div>
+
+  <!-- КАК РАБОТИМ -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Процес</span>
+        <h2>Как работим заедно</h2>
+        <p>4 прости стъпки до твоята книжка</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <h3>Свържи се с мен</h3>
+          <p>Пиши или се обади. Договаряме удобно за теб време и начален урок.</p>
+        </div>
+        <div class="step__arrow">→</div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <h3>Пробно занятие</h3>
+          <p>Оценяваме заедно нивото ти и правим план за обучение.</p>
+        </div>
+        <div class="step__arrow">→</div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <h3>Редовни уроци</h3>
+          <p>Учиш в удобно темпо — на паркинг, в града, на магистрала.</p>
+        </div>
+        <div class="step__arrow">→</div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <h3>Изпит и книжка</h3>
+          <p>Идваш на изпита уверен и подготвен. Поздравления! 🎉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОТЗИВИ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Отзиви</span>
+        <h2>Какво казват курсистите</h2>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="testimonial">
+          <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
+          <p>„Страхотен инструктор! Много търпелив, обяснява всичко ясно. Взех книжката от първия опит!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">М</div>
+            <div>
+              <strong>Мария, 21 г.</strong>
+              <span>Взе книжка след 20 урока</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
+          <p>„Препоръчвам го на всички! Аз бях много нервна зад волана, но той ме успокои и сега шофирам уверено."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">Е</div>
+            <div>
+              <strong>Елена, 34 г.</strong>
+              <span>Взе книжка след 25 урока</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
+          <p>„Интензивният курс беше точно това, което ми трябваше. За 3 седмици бях готов за изпита!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">Г</div>
+            <div>
+              <strong>Георги, 27 г.</strong>
+              <span>Взе книжка след 30 урока</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
+          <p>„Вземаше ме от вкъщи, много удобно. Цените са честни, а резултатът — отличен!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">Д</div>
+            <div>
+              <strong>Димитър, 19 г.</strong>
+              <span>Взе книжка от първи опит</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТ -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__text">
+        <span class="section-label">Контакт</span>
+        <h2>Готов/а ли си да започнеш?</h2>
+        <p>Запиши се за безплатна консултация или пробен урок. Свържи се с мен по телефон, имейл или попълни формата.</p>
+        <div class="contact__methods">
+          <a href="tel:+359986270674" class="contact__method">
+            <span class="contact__method-icon">📞</span>
+            <div>
+              <strong>Телефон</strong>
+              <span>0986 270 674</span>
+            </div>
+          </a>
+          <a href="mailto:mihailgrebenarov@gmail.com" class="contact__method">
+            <span class="contact__method-icon">✉️</span>
+            <div>
+              <strong>Имейл</strong>
+              <span>mihailgrebenarov@gmail.com</span>
+            </div>
+          </a>
+          <div class="contact__method">
+            <span class="contact__method-icon">📍</span>
+            <div>
+              <strong>Район</strong>
+              <span>София и околности</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact__form" id="contactForm" novalidate>
+        <h3>Запишете се</h3>
+        <div class="form-group">
+          <label for="name">Вашето име *</label>
+          <input type="text" id="name" name="name" placeholder="Иван Иванов" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+359 888 123 456" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Интересувам се от</label>
+          <select id="service" name="service">
+            <option value="">Изберете пакет</option>
+            <option value="trial">Пробен урок (15 €)</option>
+            <option value="standard">Стандартен пакет (1200 €)</option>
+            <option value="intensive">Интензивен курс (1000 €)</option>
+            <option value="other">Друго / Имам въпроси</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Съобщение (незадължително)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Напишете кога сте свободни или имате въпроси..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Изпрати запитване</button>
+        <p class="form-note">Ще се свържа с вас в рамките на 24 часа.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__icon">🚗</span>
+        <span>АвтоИнструктор</span>
+      </div>
+      <p>© 2026 Михаил Гребенаров. Всички права запазени.</p>
+      <div class="footer__links">
+        <a href="#hero">Начало</a>
+        <a href="#about">За мен</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакт</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
