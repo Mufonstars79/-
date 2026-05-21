@@ -67,7 +67,6 @@ document.addEventListener('keydown', e => {
 });
 
 // ===== HEADER SCROLL SHADOW =====
-// Header scroll shadow
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 10);
@@ -90,24 +89,55 @@ nav.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Contact form — simple validation + success message
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+// Contact form — изпраща запитването до имейл чрез Formspree
+const FORMSPREE_URL = 'https://formspree.io/f/mdajgajw';
+
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const name  = this.name.value.trim();
   const phone = this.phone.value.trim();
 
   if (!name || !phone) {
-    alert('Моля, попълнете вашето име и телефон.');
+    alert('Моля, попълнете вашето ime и телефон.');
     return;
   }
 
-  this.innerHTML = `
-    <div style="text-align:center;padding:40px 20px">
-      <div style="font-size:56px;margin-bottom:16px">✅</div>
-      <h3 style="margin-bottom:12px;color:#0f172a">Благодаря!</h3>
-      <p style="color:#6b7280">Ще се свържа с теб скоро, <strong>${name}</strong>!</p>
-    </div>
-  `;
+  const submitBtn = this.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Изпращане...';
+
+  const data = {
+    name:    name,
+    phone:   phone,
+    service: this.service.value,
+    message: this.message.value.trim()
+  };
+
+  try {
+    const res = await fetch(FORMSPREE_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body:    JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      this.innerHTML = `
+        <div style="text-align:center;padding:40px 20px">
+          <div style="font-size:56px;margin-bottom:16px">✅</div>
+          <h3 style="margin-bottom:12px;color:#0f172a">Благодаря!</h3>
+          <p style="color:#6b7280">Ще се свържа с теб скоро, <strong>${name}</strong>!</p>
+        </div>
+      `;
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Изпрати запитване';
+      alert('Грешка при изпращане. Моля, опитайте отново или се свържете по телефон.');
+    }
+  } catch {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Изпрати запитване';
+    alert('Грешка при изпращане. Моля, опитайте отново или се свържете по телефон.');
+  }
 });
 
 // Smooth active nav highlight on scroll
