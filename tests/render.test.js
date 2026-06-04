@@ -30,7 +30,7 @@ test('renderTrustBar: renders 4 items', () => {
   assert.ok(html.includes('15+'), 'should include TRUST_1_NUM');
   assert.ok(html.includes('години'), 'should include TRUST_1_LABEL');
   assert.ok(html.includes('Б+С'), 'should include TRUST_2_NUM');
-  assert.ok(html.includes('1ви'), 'should include TRUST_4_NUM');
+  assert.ok(html.includes('<sup>ви</sup>'), 'should wrap ordinal suffix in sup');
   assert.ok(html.includes('trust-bar'), 'should have trust-bar class');
 });
 
