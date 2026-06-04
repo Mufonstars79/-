@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F5F2EC;
+  --text: #1A1916;
+  --accent: #D4591A;
+  --muted: #6B6860;
+  --line: rgba(26,25,22,0.12);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 390px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px 18px; border-bottom: 0.5px solid var(--line); }
+.nav-logo { font-family: var(--serif); font-size: 18px; letter-spacing: -0.3px; }
+.nav-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 7px 14px; border-radius: 2px; letter-spacing: 0.02em; }
+
+/* HERO */
+.hero { padding: 48px 24px 0; position: relative; }
+.hero-label { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.hero-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+h1 { font-family: var(--serif); font-size: 46px; line-height: 1.05; letter-spacing: -1px; font-weight: 400; margin-bottom: 10px; }
+h1 em { font-style: italic; color: var(--accent); }
+.hero-sub { font-size: 15px; color: var(--muted); line-height: 1.55; margin-top: 16px; max-width: 280px; }
+
+/* CAR BLOCK */
+.car-block { margin: 36px 0 0; position: relative; background: #EAE6DE; border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: flex-end; }
+.car-caption { position: relative; z-index: 2; background: var(--text); color: var(--bg); font-family: var(--sans); font-size: 12px; padding: 10px 16px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.car-caption strong { font-weight: 500; }
+.car-caption span { color: rgba(245,242,236,0.5); font-size: 11px; }
+
+/* TRUST BAR */
+.trust-bar { padding: 28px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 0.5px solid var(--line); }
+.trust-item { padding: 16px 0; border-bottom: 0.5px solid var(--line); }
+.trust-item:nth-child(odd) { border-right: 0.5px solid var(--line); padding-right: 20px; }
+.trust-item:nth-child(even) { padding-left: 20px; }
+.trust-item:nth-child(3), .trust-item:nth-child(4) { border-bottom: none; }
+.trust-num { font-family: var(--serif); font-size: 36px; line-height: 1; letter-spacing: -1px; font-weight: 400; }
+.trust-num sup { font-size: 18px; vertical-align: super; color: var(--accent); }
+.trust-label { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* SECTION (shared) */
+.section { padding: 48px 24px; border-bottom: 0.5px solid var(--line); }
+.section-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+h2 { font-family: var(--serif); font-size: 32px; line-height: 1.1; letter-spacing: -0.5px; font-weight: 400; margin-bottom: 24px; }
+
+/* ПРЕДИМСТВА */
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.feature-item { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; padding: 16px 0; border-bottom: 0.5px solid var(--line); }
+.feature-item:last-child { border-bottom: none; }
+.feature-num { font-family: var(--serif); font-size: 13px; color: var(--accent); margin-top: 1px; }
+.feature-text strong { display: block; font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+.feature-text p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* УСЛУГИ — Вариант C (популярна изпъква + малки карти) */
+.c-featured { background: var(--text); color: var(--bg); padding: 24px 20px; border-radius: 2px; margin-bottom: 10px; }
+.c-feat-badge { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.c-feat-name { font-family: var(--serif); font-size: 26px; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 8px; }
+.c-feat-desc { font-size: 13px; opacity: 0.7; line-height: 1.5; margin-bottom: 16px; }
+.c-feat-row { display: flex; justify-content: space-between; align-items: flex-end; }
+.c-feat-price { font-family: var(--serif); font-size: 36px; letter-spacing: -1.5px; }
+.c-feat-included { font-size: 10px; opacity: 0.5; list-style: none; display: flex; flex-direction: column; gap: 3px; text-align: right; }
+.c-feat-included li::before { content: '✓ '; }
+.c-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.c-sec-card { border: 0.5px solid var(--line); padding: 16px 14px; border-radius: 2px; }
+.c-sec-name { font-family: var(--serif); font-size: 18px; margin-bottom: 4px; }
+.c-sec-desc { font-size: 11px; color: var(--muted); line-height: 1.4; margin-bottom: 10px; }
+.c-sec-price { font-family: var(--serif); font-size: 20px; letter-spacing: -0.5px; color: var(--accent); }
+
+/* ОТЗИВИ — Вариант B (карти с автор) */
+.b-cards { display: flex; flex-direction: column; gap: 10px; }
+.b-card { border: 0.5px solid var(--line); padding: 18px 16px; border-radius: 2px; }
+.b-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.b-stars { color: var(--accent); font-size: 12px; letter-spacing: 1px; }
+.b-result-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); background: #E8E4DC; padding: 3px 7px; border-radius: 1px; max-width: 130px; text-align: right; line-height: 1.4; }
+.b-text { font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 10px; }
+.b-author { display: flex; gap: 10px; align-items: center; }
+.b-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--text); display: flex; align-items: center; justify-content: center; color: var(--bg); font-family: var(--serif); font-size: 13px; flex-shrink: 0; }
+.b-name { font-size: 12px; font-weight: 500; }
+.b-age { font-size: 11px; color: var(--muted); }
+
+/* ГАЛЕРИЯ — Вариант C (пълна ширина, наредени) */
+.c-stack { display: flex; flex-direction: column; gap: 10px; }
+.c-photo { position: relative; border-radius: 2px; overflow: hidden; }
+.c-photo img { width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; }
+.c-label { background: var(--text); color: var(--bg); font-family: var(--sans); font-size: 12px; padding: 10px 14px; }
+
+/* CTA */
+.cta-section { padding: 56px 24px 48px; border-bottom: 0.5px solid var(--line); }
+.cta-section h2 { margin-bottom: 8px; }
+.cta-section p { font-size: 15px; color: var(--muted); margin-bottom: 32px; line-height: 1.55; }
+.cta-primary { display: flex; align-items: center; justify-content: space-between; background: var(--text); color: var(--bg); padding: 18px 20px; border-radius: 2px; text-decoration: none; margin-bottom: 10px; font-weight: 500; font-size: 15px; }
+.cta-primary .arrow { font-family: var(--serif); font-size: 22px; opacity: 0.6; }
+.cta-secondary { display: flex; align-items: center; justify-content: space-between; background: transparent; color: var(--text); padding: 18px 20px; border-radius: 2px; text-decoration: none; font-size: 15px; border: 0.5px solid var(--line); }
+.cta-secondary .arrow { font-size: 18px; opacity: 0.4; }
+
+/* ABOUT */
+.about-section { padding: 48px 24px; border-bottom: 0.5px solid var(--line); }
+.about-name { font-family: var(--serif); font-size: 22px; font-style: italic; margin-bottom: 4px; }
+.about-role { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+.about-text { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.about-divider { width: 32px; height: 1px; background: var(--accent); margin: 20px 0; }
+
+/* FOOTER */
+footer { padding: 32px 24px; display: flex; flex-direction: column; gap: 16px; }
+.footer-logo { font-family: var(--serif); font-size: 20px; letter-spacing: -0.3px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-link { font-size: 13px; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.footer-bottom { font-size: 11px; color: var(--muted); padding-top: 16px; border-top: 0.5px solid var(--line); opacity: 0.6; }
