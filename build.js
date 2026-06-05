@@ -52,7 +52,11 @@ function copyPictures() {
   if (!fs.existsSync(src)) return;
   if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
   for (const file of fs.readdirSync(src)) {
-    fs.copyFileSync(path.join(src, file), path.join(dest, file));
+    try {
+      fs.copyFileSync(path.join(src, file), path.join(dest, file));
+    } catch (err) {
+      console.warn(`  ⚠️  Пропусната снимка "${file}": ${err.message}`);
+    }
   }
 }
 
