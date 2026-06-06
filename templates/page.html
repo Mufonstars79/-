@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} · Михаил Гребенаров</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="/pages/{{SLUG}}.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">Михаил Гребенаров</a>
+    <div class="nav-actions">
+      <a href="#schedule" class="nav-link">Запази час</a>
+      <a href="tel:+359888000000" class="nav-cta">Обади се сега</a>
+    </div>
+  </nav>
+
+  <article class="page-content">
+    <header class="page-header">
+      {{#if IMAGE_URL}}<img src="{{IMAGE_URL}}" alt="{{TITLE}}" class="page-cover">{{/if}}
+      <div class="page-meta">
+        {{#if CATEGORY}}<span class="category">{{CATEGORY}}</span>{{/if}}
+        {{#if DATE_FORMATTED}}<time>{{DATE_FORMATTED}}</time>{{/if}}
+      </div>
+      <h1>{{TITLE}}</h1>
+      {{#if DESCRIPTION}}<p class="page-lead">{{DESCRIPTION}}</p>{{/if}}
+      {{#if TAGS_HTML}}<div class="tags">{{TAGS_HTML}}</div>{{/if}}
+    </header>
+
+    <div class="page-body">
+      {{CONTENT}}
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-cta-row">
+      <a href="tel:+359888000000" class="nav-cta">Обади се сега</a>
+      <a href="#schedule" class="nav-link">Запази час</a>
+    </div>
+    <small class="footer-bottom">Последна промяна: {{UPDATED_AT}}</small>
+  </footer>
+</body>
+</html>

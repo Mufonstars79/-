@@ -79,6 +79,14 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
 
 <nav>
   <span class="nav-logo">${t('ABOUT_NAME')}</span>
+  <div class="nav-menu">
+    <a class="nav-item" href="#uslugi">Услуги</a>
+    <a class="nav-item" href="#predimstva">Как работя</a>
+    <a class="nav-item" href="#otzivi">Отзиви</a>
+    <a class="nav-item" href="#galeria">Галерия</a>
+    <a class="nav-item" href="#about">За мен</a>
+    <a class="nav-item" href="#contact">Контакт</a>
+  </div>
   <a class="nav-cta" href="tel:${phone}">${t('NAV_CTA_TEXT')}</a>
 </nav>
 
@@ -86,42 +94,57 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
   <p class="hero-label">${t('HERO_LABEL')}</p>
   <h1>${t('HERO_H1_LINE1')}<br>${t('HERO_H1_LINE2')}<br><em>${t('HERO_H1_ACCENT')}</em></h1>
   <p class="hero-sub">${t('HERO_SUBTITLE')}</p>
-  <div class="car-block">
-    <img src="pictures/kola.jpg" alt="${t('HERO_CAR_NAME')}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
-    <div class="car-caption">
-      <strong>${t('HERO_CAR_NAME')}</strong>
-      <span>${t('HERO_CAR_COMPANY')}</span>
+  <div class="hero-photos">
+    <div class="car-block">
+      <img src="pictures/kola.jpg" alt="${t('HERO_CAR_NAME')}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+      <div class="car-caption">
+        <strong>${t('HERO_CAR_NAME')}</strong>
+        <span>${t('HERO_CAR_COMPANY')}</span>
+      </div>
     </div>
+    ${galeria.map(g => `<div class="c-photo">
+      <img src="${g.localPath || ''}" alt="${g.title || ''}" loading="lazy">
+      <div class="c-label">${g.title}</div>
+    </div>`).join('')}
   </div>
 </section>
 
 ${renderTrustBar(texts)}
 
-<section class="section">
+<section id="predimstva" class="section">
   <p class="section-tag">Как работя</p>
   <h2>Не те учим наизуст. Учим те да шофираш.</h2>
   ${renderPredimstva(predimstva)}
 </section>
 
-<section class="section">
+<section id="uslugi" class="section">
   <p class="section-tag">Услуги</p>
   <h2>Какво предлагам</h2>
   ${renderUslugi(uslugi)}
 </section>
 
-${otzivi.length ? `<section class="section">
+${otzivi.length ? `<section id="otzivi" class="section">
   <p class="section-tag">Отзиви</p>
   <h2>Какво казват курсистите</h2>
   ${renderOtzivi(otzivi)}
 </section>` : ''}
 
-${galeria.length ? `<section class="section">
+<section id="galeria" class="section">
   <p class="section-tag">Галерия</p>
   <h2>Колата и аз</h2>
-  ${renderGaleria(galeria)}
-</section>` : ''}
+  <div class="gallery-grid">
+    <div class="c-photo">
+      <img src="pictures/kola.jpg" alt="${t('HERO_CAR_NAME')}" loading="lazy">
+      <div class="c-label">${t('HERO_CAR_NAME')}</div>
+    </div>
+    ${galeria.map(g => `<div class="c-photo">
+      <img src="${g.localPath || ''}" alt="${g.title || ''}" loading="lazy">
+      <div class="c-label">${g.title}</div>
+    </div>`).join('')}
+  </div>
+</section>
 
-<section class="cta-section">
+<section id="contact" class="cta-section">
   <p class="section-tag">Следващата стъпка</p>
   <h2>${t('CTA_TITLE')}</h2>
   <p>${t('CTA_TEXT')}</p>
@@ -135,7 +158,7 @@ ${galeria.length ? `<section class="section">
   </a>
 </section>
 
-<section class="about-section">
+<section id="about" class="about-section">
   <p class="about-name">${t('ABOUT_NAME')}</p>
   <p class="about-role">${t('ABOUT_ROLE')}</p>
   <div class="about-divider"></div>
