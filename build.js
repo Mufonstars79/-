@@ -87,7 +87,7 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
     <a class="nav-item" href="#about">За мен</a>
     <a class="nav-item" href="#contact">Контакт</a>
   </div>
-  <a class="nav-cta" href="tel:${phone}">${t('NAV_CTA_TEXT')}</a>
+  <a class="nav-cta" href="#contact">${t('NAV_CTA_TEXT')}</a>
 </nav>
 
 <section class="hero">
@@ -148,15 +148,95 @@ ${otzivi.length ? `<section id="otzivi" class="section">
   <p class="section-tag">Следващата стъпка</p>
   <h2>${t('CTA_TITLE')}</h2>
   <p>${t('CTA_TEXT')}</p>
-  <a class="cta-primary" href="tel:${phone}">
-    <span>Обади се сега</span>
-    <span class="arrow">→</span>
-  </a>
-  <a class="cta-secondary" href="tel:${phone}">
-    <span>Запази час ↗</span>
-    <span class="arrow">›</span>
-  </a>
+
+  <div class="cta-split">
+
+    <div class="cta-direct">
+      <p class="cta-direct-label">Предпочиташ телефон?</p>
+      <a class="cta-primary" href="tel:${phone}">
+        <span>Обади се сега</span>
+        <span class="arrow">→</span>
+      </a>
+      <p class="cta-phone-num">${t('CTA_PHONE')}</p>
+    </div>
+
+    <form id="contact-form" class="contact-form" novalidate>
+      <input type="hidden" name="access_key" value="35904bfb-ec51-4161-acd4-92f875590f1f">
+      <input type="hidden" name="subject" value="Ново запитване от сайта — ${t('ABOUT_NAME')}">
+      <input type="hidden" name="from_name" value="${t('ABOUT_NAME')} — сайт">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-name">Ime <span class="form-req">*</span></label>
+          <input type="text" id="cf-name" name="name" required placeholder="Вашето пълно име">
+        </div>
+        <div class="form-group">
+          <label for="cf-phone">Телефон <span class="form-req">*</span></label>
+          <input type="tel" id="cf-phone" name="phone" required placeholder="+359 8XX XXX XXX">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-email">Имейл <span class="form-opt">(по избор)</span></label>
+          <input type="email" id="cf-email" name="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="cf-package">Пакет</label>
+          <select id="cf-package" name="package">
+            <option value="">— Изберете пакет —</option>
+            ${uslugi.map(u => `<option value="${u.name}">${u.name}${u.price ? ' — ' + u.price : ''}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-message">Съобщение <span class="form-opt">(по избор)</span></label>
+        <textarea id="cf-message" name="message" rows="3" placeholder="Въпроси, предпочитано време за час..."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Запази час →</button>
+      <div id="form-success" class="form-success">Благодаря! Ще се свържа с теб скоро.</div>
+    </form>
+
+  </div>
 </section>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var btn  = form.querySelector('.form-submit');
+  var succ = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var orig = btn.textContent;
+    btn.textContent = 'Изпращане…';
+    btn.disabled = true;
+
+    try {
+      var res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      var json = await res.json();
+      if (json.success) {
+        succ.style.display = 'flex';
+        form.reset();
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = 'Грешка — опитай отново';
+        btn.disabled = false;
+      }
+    } catch (_) {
+      btn.textContent = 'Грешка — опитай отново';
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 
 <section id="about" class="about-section">
   <p class="about-name">${t('ABOUT_NAME')}</p>

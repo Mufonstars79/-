@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F5F2EC;
+  --text: #1A1916;
+  --accent: #D4591A;
+  --muted: #6B6860;
+  --line: rgba(26,25,22,0.12);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 390px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 18px;
+  border-bottom: 0.5px solid var(--line);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+.nav-cta {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 7px 14px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 48px 24px 0;
+  position: relative;
+}
+.hero-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+h1 {
+  font-family: var(--serif);
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 16px;
+  max-width: 280px;
+}
+
+/* ── CAR BLOCK ── */
+.car-block {
+  margin: 36px 0 0;
+  position: relative;
+  background: #EAE6DE;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: flex-end;
+}
+.car-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0; left: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+.car-icon {
+  width: 80px;
+  height: 40px;
+  opacity: 0.2;
+}
+.car-caption {
+  position: relative;
+  z-index: 2;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 10px 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.car-caption strong {
+  font-weight: 500;
+}
+.car-caption span {
+  color: rgba(245,242,236,0.5);
+  font-size: 11px;
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  padding: 28px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 0.5px solid var(--line);
+}
+.trust-item {
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--line);
+}
+.trust-item:nth-child(odd) {
+  border-right: 0.5px solid var(--line);
+  padding-right: 20px;
+}
+.trust-item:nth-child(even) {
+  padding-left: 20px;
+}
+.trust-item:nth-child(3),
+.trust-item:nth-child(4) {
+  border-bottom: none;
+}
+.trust-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -1px;
+  font-weight: 400;
+}
+.trust-num sup {
+  font-size: 18px;
+  vertical-align: super;
+  color: var(--accent);
+}
+.trust-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* ── WHAT SECTION ── */
+.section {
+  padding: 48px 24px;
+  border-bottom: 0.5px solid var(--line);
+}
+.section-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.feature-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--line);
+}
+.feature-item:last-child { border-bottom: none; }
+.feature-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 1px;
+}
+.feature-text strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.feature-text p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── CATEGORIES ── */
+.cat-section {
+  padding: 48px 24px;
+  border-bottom: 0.5px solid var(--line);
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.cat-card {
+  background: var(--text);
+  color: var(--bg);
+  padding: 24px 18px;
+  border-radius: 2px;
+}
+.cat-card.accent {
+  background: var(--accent);
+}
+.cat-letter {
+  font-family: var(--serif);
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+.cat-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  padding: 56px 24px 48px;
+  border-bottom: 0.5px solid var(--line);
+}
+.cta-section h2 {
+  margin-bottom: 8px;
+}
+.cta-section p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.55;
+}
+.cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--text);
+  color: var(--bg);
+  padding: 18px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.cta-primary .arrow {
+  font-family: var(--serif);
+  font-size: 22px;
+  opacity: 0.6;
+}
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  color: var(--text);
+  padding: 18px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  border: 0.5px solid var(--line);
+  width: 100%;
+}
+.cta-secondary .arrow {
+  font-size: 18px;
+  opacity: 0.4;
+}
+
+/* ── ABOUT ── */
+.about-section {
+  padding: 48px 24px;
+  border-bottom: 0.5px solid var(--line);
+}
+.about-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.about-role {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.about-text {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.about-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  margin: 20px 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 20px;
+  letter-spacing: -0.3px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-bottom {
+  font-size: 11px;
+  color: var(--muted);
+  padding-top: 16px;
+  border-top: 0.5px solid var(--line);
+  opacity: 0.6;
+}
+
+/* ── DESIGN BRIEF OVERLAY ── */
+.brief-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 16px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(212,89,26,0.3);
+}
+.brief-panel {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--text);
+  color: var(--bg);
+  padding: 32px 24px;
+  border-radius: 8px 8px 0 0;
+  z-index: 200;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0,0.15,1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.brief-panel.open { transform: translateY(0); }
+.brief-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: none;
+  border: none;
+  color: rgba(245,242,236,0.5);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+.brief-h {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 24px;
+  color: var(--bg);
+}
+.brief-row {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid rgba(245,242,236,0.1);
+}
+.brief-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.4);
+  margin-bottom: 6px;
+}
+.brief-val {
+  font-size: 14px;
+  color: var(--bg);
+  line-height: 1.5;
+}
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Михаил Гребенаров</span>
+  <a class="nav-cta" href="#">Запази час</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-label">Автоинструктор · София</p>
+  <h1>Шофьорски<br>уроци без<br><em>стрес</em></h1>
+  <p class="hero-sub">Реални условия. Реална кола. Без театър — само знания, които остават.</p>
+
+  <div class="car-block">
+    <img src="pictures/kola.jpg" alt="Hyundai i30 2018" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+      
+    </div>
+    <div class="car-caption">
+      <strong>Hyundai i30 2018 G</strong>
+      <span>Крами-98 ЕООД</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-num">15<sup>+</sup></div>
+    <div class="trust-label">години зад волана и пред ученика</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">Б + С</div>
+    <div class="trust-label">категории, за които подготвям</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">18–</div>
+    <div class="trust-label">до 60+ години — всяка възраст</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">1<sup>ви</sup></div>
+    <div class="trust-label">опит при реални условия на пътя</div>
+  </div>
+</div>
+
+<section class="section">
+  <p class="section-tag">Как работя</p>
+  <h2>Не те учим наизуст. Учим те да шофираш.</h2>
+  <ul class="feature-list">
+    <li class="feature-item">
+      <span class="feature-num">01</span>
+      <div class="feature-text">
+        <strong>Реален Sofia трафик</strong>
+        <p>Практикуваш там, където после ще шофираш — не на пусти площадки.</p>
+      </div>
+    </li>
+    <li class="feature-item">
+      <span class="feature-num">02</span>
+      <div class="feature-text">
+        <strong>Спокоен темп, ясни обяснения</strong>
+        <p>Без крещене, без паника. Правя грешката разбираема, не срамна.</p>
+      </div>
+    </li>
+    <li class="feature-item">
+      <span class="feature-num">03</span>
+      <div class="feature-text">
+        <strong>Гъвкаво разписание</strong>
+        <p>Сутрин, следобед, уикенд — намираме час, който ти пасва.</p>
+      </div>
+    </li>
+    <li class="feature-item">
+      <span class="feature-num">04</span>
+      <div class="feature-text">
+        <strong>Проследяваш напредъка си</strong>
+        <p>След всеки урок знаеш точно какво е наред и какво следва.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="cat-section">
+  <p class="section-tag">Категории</p>
+  <h2>Избери своя път</h2>
+  <div class="cat-grid">
+    <div class="cat-card accent">
+      <div class="cat-letter">Б</div>
+      <div class="cat-desc">Лична кола · Градско шофиране · Начинаещи и опреснители</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-letter">С</div>
+      <div class="cat-desc">Камиони · Тежкотоварни · Професионален транспорт</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <p class="section-tag">Следващата стъпка</p>
+  <h2>Готов ли си да тръгнеш?</h2>
+  <p>Обади се или запази час онлайн. Отговарям лично — без ботове, без чакане.</p>
+  <button class="cta-primary" onclick="window.location='tel:+359888000000'">
+    <span>Обади се сега</span>
+    <span class="arrow">→</span>
+  </button>
+  <button class="cta-secondary" onclick="sendPrompt('Как да запазя час при Михаил Гребенаров?')">
+    <span>Запази час онлайн ↗</span>
+    <span class="arrow">›</span>
+  </button>
+</section>
+
+<section class="about-section">
+  <p class="about-name">Михаил Гребенаров</p>
+  <p class="about-role">Автоинструктор · Крами-98 ЕООД</p>
+  <div class="about-divider"></div>
+  <p class="about-text">Шофирам и преподавам от години. Знам, че воланът е нещо, което се учи с търпение — не с напрежение. Работя с хора от 18 до 60+ и подхождам към всеки индивидуално.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Михаил Гребенаров</div>
+  <div class="footer-links">
+    <a class="footer-link" href="tel:+359896270674">
+      ☎ +359 896 270 674
+    </a>
+    <a class="footer-link" href="#">
+      ◎ Instagram / Facebook
+    </a>
+    <a class="footer-link" href="#">
+      ✉ Изпрати съобщение
+    </a>
+  </div>
+  <div class="footer-bottom">© 2025 Крами-98 ЕООД · Всички права запазени</div>
+</footer>
+
+<button class="brief-toggle" onclick="document.getElementById('brief').classList.toggle('open')">
+  Дизайн бриф ↑
+</button>
+
+<div class="brief-panel" id="brief">
+  <button class="brief-close" onclick="document.getElementById('brief').classList.remove('open')">×</button>
+  <p class="brief-h">Дизайн бриф</p>
+
+  <div class="brief-row">
+    <p class="brief-label">Шрифтове</p>
+    <p class="brief-val"><strong>Instrument Serif</strong> — заглавия, числа, акценти<br><strong>DM Sans</strong> — основен текст, навигация, етикети</p>
+  </div>
+  <div class="brief-row">
+    <p class="brief-label">Цветове (max 3)</p>
+    <p class="brief-val">
+      <span class="swatch" style="background:#F5F2EC;border:1px solid rgba(0,0,0,0.2)"></span>#F5F2EC — Фон (топло екрю)<br>
+      <span class="swatch" style="background:#1A1916"></span>#1A1916 — Текст (почти черно)<br>
+      <span class="swatch" style="background:#D4591A"></span>#D4591A — Акцент (изгоряла оранжева)
+    </p>
+  </div>
+  <div class="brief-row">
+    <p class="brief-label">Разстояния</p>
+    <p class="brief-val">48px вертикален padding на секции · 24px хоризонтален margin · 16px gap между елементи · 375px base width</p>
+  </div>
+  <div class="brief-row">
+    <p class="brief-label">Философия</p>
+    <p class="brief-val">Редакционна минималистика. Числата говорят сами. Никакви декорации без причина. Типографията прави тежката работа.</p>
+  </div>
+  <div class="brief-row">
+    <p class="brief-label">Избегнати клишета</p>
+    <p class="brief-val">✗ Inter / Poppins / Montserrat<br>✗ Лилаво-сини градиенти<br>✗ Hero + 3 карти + отзиви<br>✗ Закръглени CTA бутони<br>✗ Stock снимки с усмихнат инструктор</p>
+  </div>
+  <div class="brief-row" style="border-bottom:none">
+    <p class="brief-label">Следващи стъпки</p>
+    <p class="brief-val">1. Добави реална снимка на колата<br>2. Добави снимка на Михаил<br>3. Свържи телефонния номер<br>4. Добави Facebook / Instagram линкове<br>5. Добави секция с отзиви (без hero шаблона)</p>
+  </div>
+</div>
+
+</body>
+</html>

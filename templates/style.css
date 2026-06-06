@@ -479,7 +479,7 @@ h2 {
   backdrop-filter: blur(4px);
 }
 
-/* ─── CTA SECTION — фон пълна ширина, съдържание до 1200px ─── */
+/* ─── CTA SECTION ─── */
 .cta-section {
   background: var(--surface);
   padding: 64px max(24px, calc(50% - 600px)) 56px;
@@ -496,10 +496,129 @@ h2 {
 .cta-section > p {
   font-size: 16px;
   color: var(--muted);
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   line-height: 1.6;
-  max-width: 480px;
+  max-width: 560px;
 }
+
+/* CTA split — телефон | форма */
+.cta-split {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.cta-direct-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.cta-phone-num {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ─── CONTACT FORM ─── */
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 26px 24px;
+  box-shadow: 0 2px 16px rgba(0, 60, 180, 0.06);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.form-row .form-group { margin-bottom: 0; }
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-req { color: var(--blue); }
+.form-opt { color: var(--muted); font-weight: 400; font-size: 12px; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: auto;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 96, 199, 0.10);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  letter-spacing: 0.01em;
+  transition: background 0.15s;
+}
+.form-submit:hover:not(:disabled) { background: var(--blue-h); }
+.form-submit:disabled { opacity: 0.60; cursor: not-allowed; }
+
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #86EFAC;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+.form-success::before { content: '✓'; font-size: 18px; }
 
 /* БУТОНИ — ПЪЛНА ШИРИНА */
 .cta-primary {
@@ -636,4 +755,12 @@ footer {
   }
 
   .gallery-grid { grid-template-columns: 1fr; }
+
+  .cta-split {
+    grid-template-columns: 1fr;
+  }
+  .cta-direct { order: 2; }
+  .contact-form { order: 1; }
+
+  .form-row { grid-template-columns: 1fr; }
 }
