@@ -640,6 +640,31 @@ h3 {
 .testimonial__author strong { display: block; font-size: 14px; }
 .testimonial__author span  { font-size: 12px; color: var(--gray-500); }
 
+/* ===== VIDEO ===== */
+.video-section {
+  padding: 100px 0;
+  background: var(--gray-100);
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16/9;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* ===== CONTACT ===== */
 .contact {
   padding: 100px 0;
