@@ -83,6 +83,7 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
     <a class="nav-item" href="#uslugi">Услуги</a>
     <a class="nav-item" href="#predimstva">Как работя</a>
     <a class="nav-item" href="#otzivi">Отзиви</a>
+    <a class="nav-item" href="#video">Видео</a>
     <a class="nav-item" href="#galeria">Галерия</a>
     <a class="nav-item" href="#about">За мен</a>
     <a class="nav-item" href="#contact">Контакт</a>
@@ -128,6 +129,20 @@ ${otzivi.length ? `<section id="otzivi" class="section">
   <h2>Какво казват курсистите</h2>
   ${renderOtzivi(otzivi)}
 </section>` : ''}
+
+<section id="video" class="section video-section">
+  <p class="section-tag">Видео</p>
+  <h2>Виж как изглежда урокът</h2>
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/ji2QT2wCv-o"
+      title="Шофьорски урок с Михаил Гребенаров"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 
 <section id="galeria" class="section">
   <p class="section-tag">Галерия</p>
