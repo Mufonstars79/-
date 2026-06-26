@@ -87,6 +87,34 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
     <a class="nav-item" href="#galeria">Галерия</a>
     <a class="nav-item" href="#about">За мен</a>
     <a class="nav-item" href="#contact">Контакт</a>
+    <div class="nav-dropdown">
+      <button class="nav-item nav-dropdown-btn" onclick="toggleNavDocs(this)">Документи ▾</button>
+      <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-cat">
+          <button class="nav-dropdown-cat-btn" onclick="toggleNavCat(this)">Категория Б ▾</button>
+          <ul class="nav-dropdown-list">
+            <li>Лична карта</li>
+            <li>Медицинско свидетелство (от личен лекар или ТЕЛК)</li>
+            <li>Диплома за завършено средно образование</li>
+            <li>Снимки (2 броя, 3.5×4.5 см)</li>
+            <li>Заявление (попълва се в КАТ или автошколата)</li>
+            <li>Документ за платена държавна такса</li>
+          </ul>
+        </div>
+        <div class="nav-dropdown-cat">
+          <button class="nav-dropdown-cat-btn" onclick="toggleNavCat(this)">Категория Ц ▾</button>
+          <ul class="nav-dropdown-list">
+            <li>Лична карта</li>
+            <li>Медицинско свидетелство (от личен лекар или ТЕЛК)</li>
+            <li>Диплома за завършено средно образование</li>
+            <li>Снимки (2 броя, 3.5×4.5 см)</li>
+            <li>Заявление (попълва се в КАТ или автошколата)</li>
+            <li>Документ за платена държавна такса</li>
+            <li>Психологическо удостоверение</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <a class="nav-cta" href="#contact">${t('NAV_CTA_TEXT')}</a>
 </nav>
@@ -269,6 +297,22 @@ ${otzivi.length ? `<section id="otzivi" class="section">
   </div>
   <div class="footer-bottom">${t('FOOTER_COPYRIGHT')}</div>
 </footer>
+
+<script>
+function toggleNavDocs(btn) {
+  btn.closest('.nav-dropdown').classList.toggle('open');
+}
+function toggleNavCat(btn) {
+  btn.closest('.nav-dropdown-cat').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(d) {
+      d.classList.remove('open');
+    });
+  }
+});
+</script>
 
 </body>
 </html>`;
