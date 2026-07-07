@@ -838,12 +838,22 @@ footer {
 /* ─── VIDEO ─── */
 .video-section { border-bottom: 1px solid var(--border); }
 
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .video-wrap {
   position: relative;
   width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: var(--surface);
@@ -857,11 +867,33 @@ footer {
   border: none;
 }
 
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.video-links {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-links .cta-secondary {
+  max-width: 360px;
+  justify-content: space-between;
+}
+
 /* ─── MOBILE — телефон ─── */
 @media (max-width: 700px) {
   .nav-menu { display: none; }
   .nav-actions { gap: 8px; }
   .nav-cta { padding: 10px 14px; font-size: 12px; }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
 
   .hero {
     padding: 40px 20px 36px;

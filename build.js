@@ -160,15 +160,50 @@ ${otzivi.length ? `<section id="otzivi" class="section">
 
 <section id="video" class="section video-section">
   <p class="section-tag">Видео</p>
-  <h2>Виж как изглежда урокът</h2>
-  <div class="video-wrap">
-    <iframe
-      src="https://www.youtube.com/embed/ji2QT2wCv-o"
-      title="Шофьорски урок с Михаил Гребенаров"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+  <h2>Други епизоди и уроки</h2>
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/ji2QT2wCv-o"
+          title="Шофьорски урок с Михаил Гребенаров"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-title">Шофьорски урок с Михаил Гребенаров</div>
+    </div>
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/4T6P6z0m2Vw"
+          title="Съвети за първи път шофиране"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-title">Съвети за първи път шофиране</div>
+    </div>
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Практически съвети за безопасно шофиране"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-title">Практически съвети за безопасно шофиране</div>
+    </div>
+  </div>
+  <div class="video-links">
+    <a class="cta-secondary" href="https://www.youtube.com/@MihailGrebenarov" target="_blank" rel="noopener noreferrer">
+      <span>Виж всички епизоди в YouTube</span>
+      <span class="arrow">→</span>
+    </a>
   </div>
 </section>
 
