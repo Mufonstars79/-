@@ -181,6 +181,11 @@ nav {
   background: var(--bg);
   padding: 56px max(24px, calc(50% - 600px)) 48px;
   border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
 }
 
 .hero-label {
@@ -193,16 +198,19 @@ nav {
   border: 1px solid rgba(0,96,199,0.35);
   padding: 5px 12px;
   border-radius: 4px;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
 }
 
-.page-intro-image {
+.page-intro-image,
+.hero-intro-image {
   display: block;
   width: 100%;
-  max-width: 600px;
+  max-width: 320px;
   height: auto;
-  margin: 0 auto 24px;
-  border-radius: 12px;
+  margin: 8px auto 0;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 16px 36px rgba(15, 37, 72, 0.12);
 }
 
 h1 {
@@ -211,9 +219,10 @@ h1 {
   line-height: 1.1;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   letter-spacing: -1px;
-  max-width: 640px;
+  max-width: 680px;
+  text-align: center;
 }
 h1 em {
   font-family: var(--serif);
@@ -227,7 +236,8 @@ h1 em {
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 0;
-  max-width: 520px;
+  max-width: 560px;
+  text-align: center;
 }
 
 /* ─── HERO PHOTO GRID ─── */
@@ -330,7 +340,7 @@ h2 {
   line-height: 1.2;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   letter-spacing: -0.5px;
   max-width: 540px;
 }
@@ -343,7 +353,7 @@ h2 {
   grid-template-columns: 40px 1fr;
   gap: 14px;
   align-items: start;
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border);
 }
 .feature-item:last-child { border-bottom: none; }
@@ -520,12 +530,20 @@ h2 {
 /* ─── GALLERY GRID (самостоятелна секция) ─── */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-@media (max-width: 900px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ─── СНИМКИ В HERO GRID ─── */
@@ -533,16 +551,23 @@ h2 {
 
 .c-photo {
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--surface);
+  min-height: 220px;
 }
 .c-photo img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 700px) {
+  .c-photo {
+    min-height: 160px;
+  }
 }
 .c-label {
   position: absolute;
@@ -684,15 +709,17 @@ h2 {
 .form-success {
   display: none;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: #DCFCE7;
   color: #15803D;
   border: 1px solid #86EFAC;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 14px 18px;
   font-size: 15px;
   font-weight: 600;
   margin-top: 12px;
+  text-align: center;
 }
 .form-success::before { content: '✓'; font-size: 18px; }
 
@@ -833,6 +860,23 @@ footer {
 /* ─── MOBILE — телефон ─── */
 @media (max-width: 700px) {
   .nav-menu { display: none; }
+  .nav-actions { gap: 8px; }
+  .nav-cta { padding: 10px 14px; font-size: 12px; }
+
+  .hero {
+    padding: 40px 20px 36px;
+  }
+  h1 {
+    font-size: 32px;
+    max-width: 100%;
+  }
+  .hero-sub {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .hero-intro-image {
+    max-width: 240px;
+  }
 
   .trust-bar {
     grid-template-columns: 1fr 1fr;
@@ -853,6 +897,7 @@ footer {
   }
 
   .gallery-grid { grid-template-columns: 1fr; }
+  .c-secondary { grid-template-columns: 1fr; }
 
   .cta-split {
     grid-template-columns: 1fr;

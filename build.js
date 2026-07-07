@@ -60,7 +60,19 @@ function copyPictures() {
   }
 }
 
-function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
+function getLocalPictures() {
+  const src = path.join(__dirname, 'pictures');
+  if (!fs.existsSync(src)) return [];
+
+  return fs.readdirSync(src)
+    .filter(file => /\.(jpe?g|png|webp|gif|avif)$/i.test(file))
+    .map(file => ({
+      src: `pictures/${file}`,
+      alt: file.replace(/\.[^.]+$/, ''),
+    }));
+}
+
+function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css, localPictures }) {
   const t = key => texts[key] || '';
   const phone = t('CTA_PHONE').replace(/\s/g, '');
   const ig = t('FOOTER_INSTAGRAM');
@@ -121,21 +133,9 @@ function buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css }) {
 
 <section class="hero">
   <p class="hero-label">${t('HERO_LABEL')}</p>
-  <h1>${t('HERO_H1_LINE1')}<br>${t('HERO_H1_LINE2')}<br><em>${t('HERO_H1_ACCENT')}</em></h1>
+  <h1>Шофьорски уроци<br>без театър<br><em>Честни, ясни и практични</em></h1>
   <p class="hero-sub">${t('HERO_SUBTITLE')}</p>
-  <div class="hero-photos">
-    <div class="car-block">
-      <img src="pictures/kola.jpg" alt="${t('HERO_CAR_NAME')}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
-      <div class="car-caption">
-        <strong>${t('HERO_CAR_NAME')}</strong>
-        <span>${t('HERO_CAR_COMPANY')}</span>
-      </div>
-    </div>
-    ${galeria.map(g => `<div class="c-photo">
-      <img src="${g.localPath || ''}" alt="${g.title || ''}" loading="lazy">
-      <div class="c-label">${g.title}</div>
-    </div>`).join('')}
-  </div>
+  <img src="pictures/Misho.jpg" alt="Михаил Гребенаров — автоинструктор" class="hero-intro-image">
 </section>
 
 ${renderTrustBar(texts)}
@@ -172,20 +172,15 @@ ${otzivi.length ? `<section id="otzivi" class="section">
   </div>
 </section>
 
-<section id="galeria" class="section">
+${localPictures.length ? `<section class="section">
   <p class="section-tag">Галерия</p>
-  <h2>Колата и аз</h2>
+  <h2>Снимки от работата ми</h2>
   <div class="gallery-grid">
-    <div class="c-photo">
-      <img src="pictures/kola.jpg" alt="${t('HERO_CAR_NAME')}" loading="lazy">
-      <div class="c-label">${t('HERO_CAR_NAME')}</div>
-    </div>
-    ${galeria.map(g => `<div class="c-photo">
-      <img src="${g.localPath || ''}" alt="${g.title || ''}" loading="lazy">
-      <div class="c-label">${g.title}</div>
+    ${localPictures.map(pic => `<div class="c-photo">
+      <img src="${pic.src}" alt="${pic.alt}" loading="lazy">
     </div>`).join('')}
   </div>
-</section>
+</section>` : ''}
 
 <section id="contact" class="cta-section">
   <p class="section-tag">Следващата стъпка</p>
@@ -340,8 +335,9 @@ async function build() {
   const galeria = await processGaleria(rawGaleria);
 
   copyPictures();
+  const localPictures = getLocalPictures();
 
-  const html = buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css });
+  const html = buildHtml({ texts, predimstva, uslugi, otzivi, galeria, css, localPictures });
   fs.writeFileSync(path.join(DIST_DIR, 'index.html'), html, 'utf8');
 
   console.log(`\n✨ Build завършен!`);
