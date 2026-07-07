@@ -196,6 +196,15 @@ nav {
   margin-bottom: 24px;
 }
 
+.page-intro-image {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: 12px;
+}
+
 h1 {
   font-family: var(--sans);
   font-size: 48px;
